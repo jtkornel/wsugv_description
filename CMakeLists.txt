@@ -11,7 +11,15 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+install(
+  DIRECTORY config launch meshes rviz urdf test
+  DESTINATION share/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
+find_package(ament_cmake_pytest REQUIRED)
+
+  ament_add_pytest_test(test_wsugv_urdf_xacro test/wsugv_test_urdf_xacro.py)
 endif()
 
 ament_package()
