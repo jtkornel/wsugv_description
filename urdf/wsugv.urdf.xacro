@@ -17,18 +17,8 @@
   <link name="world" />
 
   <!-- Load robot's macro with parameters -->
-  <!-- set prefix if multiple robots are used -->
-  <xacro:wsugv prefix="$(arg prefix)" parent="world" >
+  <xacro:wsugv wheel_spacing=0.142 wheel_separation=0.126 wheel_radius=0.04 wheel_width=0.045 parent="world">
     <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
   </xacro:wsugv>
-
-  <xacro:wsugv_ros2_control
-    name="wsugv"
-    prefix="$(arg prefix)"
-    use_mock_hardware="$(arg use_mock_hardware)"
-    mock_sensor_commands="$(arg mock_sensor_commands)"
-    sim_gazebo_classic="$(arg sim_gazebo_classic)"
-    sim_gazebo="$(arg sim_gazebo)"
-    simulation_controllers="$(arg simulation_controllers)" />
 
 </robot>
