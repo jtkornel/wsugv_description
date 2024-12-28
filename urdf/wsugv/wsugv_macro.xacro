@@ -39,16 +39,16 @@
 
       <xacro:default_inertial/>
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.054505" rpy="0 0 0" />
         <geometry>
-          <box size="0.001 0.001 0.001" />
+          <box size="0.24318 0.12002 0.05875" />
         </geometry>
         <material name="black"/>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.054505" rpy="0 0 0" />
         <geometry>
-          <box size="0.001 0.001 0.001" />
+          <box size="0.24318 0.12002 0.05875" />
         </geometry>
       </collision>
     </link>
