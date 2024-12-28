@@ -13,12 +13,8 @@
   <xacro:include filename="$(find wsugv_description)/urdf/wsugv/wsugv_macro.xacro"/>
   <xacro:include filename="$(find wsugv_description)/urdf/wsugv/wsugv_macro.ros2_control.xacro"/>
 
-  <!-- create link fixed to the "world" -->
-  <link name="world" />
-
   <!-- Load robot's macro with parameters -->
-  <xacro:wsugv wheel_spacing=0.142 wheel_separation=0.126 wheel_radius=0.04 wheel_width=0.045 parent="world">
-    <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
+  <xacro:wsugv wheel_spacing="0.0862" wheel_separation="0.17621" wheel_radius="0.04" wheel_width="0.045">
   </xacro:wsugv>
 
 </robot>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
-
+  <xacro:property name="PI" value="3.1415926535897931" />
   <xacro:include filename="$(find wsugv_description)/urdf/common/inertials.xacro" />
   <xacro:include filename="$(find wsugv_description)/urdf/common/materials.xacro" />
 
@@ -13,6 +13,7 @@
       <geometry>
         <cylinder radius="${wheel_radius}" length="${wheel_width}" />
       </geometry>
+      <material name="black"/>
     </visual>
 
     <collision>
@@ -28,7 +29,7 @@
       <parent link="base_link" />
       <child link="${prefix}_wheel_link" />
       <axis xyz="0 1 0" />
-    </join>
+    </joint>
   </xacro:macro>
 
   <xacro:macro name="wsugv" params="wheel_spacing wheel_separation wheel_radius wheel_width">
@@ -55,12 +56,12 @@
     <!-- END LINKS -->
 
     <!-- JOINTS -->
-    <xacro:create_wheel prefix="front_left"  x_offset="${wheel_spacing}" y_offset="${wheel_separation / 2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
-    <xacro:create_wheel prefix="front_right" x_offset="${wheel_spacing}" y_offset="${wheel_separation / -2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
-    <xacro:create_wheel prefix="mid_left"    x_offset=0 y_offset="${wheel_separation / 2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
-    <xacro:create_wheel prefix="mid_right"   x_offset=0 y_offset="${wheel_separation / -2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
-    <xacro:create_wheel prefix="rear_left"   x_offset="${-wheel_spacing}" y_offset="${wheel_separation / 2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
-    <xacro:create_wheel prefix="rear_right"  x_offset="${-wheel_spacing}" y_offset="${wheel_separation / -2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
+    <xacro:wheel prefix="front_left"  x_offset="${wheel_spacing}" y_offset="${wheel_separation / 2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
+    <xacro:wheel prefix="front_right" x_offset="${wheel_spacing}" y_offset="${wheel_separation / -2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
+    <xacro:wheel prefix="mid_left"    x_offset="0" y_offset="${wheel_separation / 2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
+    <xacro:wheel prefix="mid_right"   x_offset="0" y_offset="${wheel_separation / -2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
+    <xacro:wheel prefix="rear_left"   x_offset="${-wheel_spacing}" y_offset="${wheel_separation / 2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
+    <xacro:wheel prefix="rear_right"  x_offset="${-wheel_spacing}" y_offset="${wheel_separation / -2}" wheel_radius="${wheel_radius}" wheel_width="${wheel_width}"/>
 
 
     <!-- END JOINTS -->
